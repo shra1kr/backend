@@ -12,8 +12,7 @@ pipeline {
         stage('test') {
             steps {
                 sh """
-                  echo 'this is for testing'
-                  ls -ltr
+                  npm install
                 """
             }
         }
