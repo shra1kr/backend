@@ -61,6 +61,7 @@ pipeline {
                     )
                 }
             }
+        }    
         stage('Deploy'){
             steps{
                 script{
@@ -78,10 +79,10 @@ pipeline {
             deleteDir()
         }
         success { 
-                echo 'I will run when pipeline is success'
+            echo 'I will run when pipeline is success'
         }
         failure { 
-                echo 'I will run when pipeline is failure'
+            echo 'I will run when pipeline is failure'
         }
     }
-}
+}    
