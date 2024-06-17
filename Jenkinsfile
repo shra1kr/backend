@@ -20,10 +20,19 @@ pipeline {
                 }
             }
         }
-        stage('Install Dependencies') {
+        stage('Install Dependencies'){
             steps {
                 sh """
                  npm install
+                 ls -ltr
+                 echo "application version: $appVersion"
+                """
+            }
+        }
+        satge('Build'){
+            steps{
+                sh """
+                 zip -r backend-${appVersion}.zip */ -x Jenkinsfile -x backend-${appVersion}.zip
                  ls -ltr
                 """
             }
