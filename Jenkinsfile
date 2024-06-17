@@ -7,6 +7,9 @@ pipeline {
         disableConcurrentBuilds()
         ansiColor('xterm')
     }
+    parameters{
+        booleanParam(name: 'deploy', defaultValue: false, description: 'Toggle this value')
+    }
     environment{
         def appVersion = '' //variable declaration
         nexusUrl = 'nexus.shravan.cloud:8081'
@@ -56,6 +59,16 @@ pipeline {
                             type: 'zip']
                         ]
                     )
+                }
+            }
+            stage('Deploy'){
+                steps{
+                    script{
+                        def params = [
+                            string(name: 'appVersion', value: "${appVersion}")
+                        ]
+                        build job: 'backend-deploy', parameters: params, wait: false
+                    }
                 }
             }
         }
