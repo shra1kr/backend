@@ -9,7 +9,7 @@ pipeline {
     }
     environment{
         def appVersion = '' //variable declaration
-        nexusUrl = nexus.shravan.cloud
+        nexusUrl = 'nexus.shravan.cloud:8081'
     }
     stages {
         stage('read the version'){
