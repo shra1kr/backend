@@ -12,7 +12,7 @@ pipeline {
         stage('test') {
             steps {
                 sh """
-                  npm install
+                  ls -ltr
                 """
             }
         }
